@@ -1,1 +1,276 @@
+// Program.cs
+using System;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        Game game = new Game();
+        await game.Run();
+    }
+}
+
+// Game.cs
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+public class Game
+{
+    private PetManager petManager = new PetManager();
+    private bool isRunning = true;
+    private string creatorName = "Your Name";
+    private string studentNumber = "Your Student Number";
+
+    public async Task Run()
+    {
+        Console.WriteLine("Welcome to Console Pet Simulator!");
+
+        while (isRunning)
+        {
+            ShowMainMenu();
+            string input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    Console.WriteLine($"Created by {creatorName} - {studentNumber}");
+                    break;
+                case "2":
+                    petManager.AdoptPet();
+                    break;
+                case "3":
+                    petManager.DisplayAllPets();
+                    break;
+                case "4":
+                    await petManager.UseItemOnPet();
+                    break;
+                case "0":
+                    isRunning = false;
+                    break;
+                default:
+                    Console.WriteLine("Invalid input.");
+                    break;
+            }
+        }
+    }
+
+    private void ShowMainMenu()
+    {
+        Console.WriteLine("\nMain Menu");
+        Console.WriteLine("1. Display Creator Info");
+        Console.WriteLine("2. Adopt a Pet");
+        Console.WriteLine("3. View Pet Stats");
+        Console.WriteLine("4. Use Item on Pet");
+        Console.WriteLine("0. Exit");
+        Console.Write("Choose an option: ");
+    }
+}
+
+// Pet.cs
+using System;
+using System.Threading.Tasks;
+
+public class Pet
+{
+    public string Name { get; set; }
+    public PetType Type { get; set; }
+    public int Hunger { get; set; } = 50;
+    public int Sleep { get; set; } = 50;
+    public int Fun { get; set; } = 50;
+    public event EventHandler<PetEventArgs> PetDied;
+    public bool IsAlive { get; private set; } = true;
+
+    public Pet(string name, PetType type)
+    {
+        Name = name;
+        Type = type;
+        _ = StatDecayLoop();
+    }
+
+    private async Task StatDecayLoop()
+    {
+        while (IsAlive)
+        {
+            await Task.Delay(5000);
+            Hunger -= 1;
+            Sleep -= 1;
+            Fun -= 1;
+            CheckStatus();
+        }
+    }
+
+    private void CheckStatus()
+    {
+        if (Hunger <= 0 || Sleep <= 0 || Fun <= 0)
+        {
+            IsAlive = false;
+            PetDied?.Invoke(this, new PetEventArgs(Name));
+        }
+    }
+
+    public async Task UseItem(Item item)
+    {
+        Console.WriteLine($"Using {item.Name} on {Name}...");
+        await Task.Delay(item.Duration);
+
+        if (item.AffectedStat == PetStat.Hunger) Hunger += item.Value;
+        else if (item.AffectedStat == PetStat.Sleep) Sleep += item.Value;
+        else if (item.AffectedStat == PetStat.Fun) Fun += item.Value;
+
+        CapStats();
+        Console.WriteLine($"{Name}'s {item.AffectedStat} increased by {item.Value}.");
+    }
+
+    private void CapStats()
+    {
+        Hunger = Math.Min(Hunger, 100);
+        Sleep = Math.Min(Sleep, 100);
+        Fun = Math.Min(Fun, 100);
+    }
+
+    public void DisplayStats()
+    {
+        Console.WriteLine($"{Name} ({Type}) - Hunger: {Hunger}, Sleep: {Sleep}, Fun: {Fun}");
+    }
+}
+
+// PetManager.cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+public class PetManager
+{
+    private List<Pet> pets = new List<Pet>();
+    private ItemDatabase itemDb = new ItemDatabase();
+
+    public void AdoptPet()
+    {
+        Console.Write("Enter pet name: ");
+        string name = Console.ReadLine();
+        Console.WriteLine("Choose pet type:");
+        foreach (var type in Enum.GetValues(typeof(PetType)))
+        {
+            Console.WriteLine($"{(int)type}. {type}");
+        }
+
+        int typeChoice = int.Parse(Console.ReadLine());
+        Pet pet = new Pet(name, (PetType)typeChoice);
+        pet.PetDied += OnPetDied;
+        pets.Add(pet);
+
+        Console.WriteLine($"{name} the {pet.Type} has been adopted!");
+    }
+
+    private void OnPetDied(object sender, PetEventArgs e)
+    {
+        pets.RemoveAll(p => p.Name == e.PetName);
+        Console.WriteLine($"{e.PetName} has died. 😢");
+    }
+
+    public void DisplayAllPets()
+    {
+        if (!pets.Any())
+        {
+            Console.WriteLine("No pets adopted yet.");
+            return;
+        }
+        pets.ForEach(p => p.DisplayStats());
+    }
+
+    public async Task UseItemOnPet()
+    {
+        if (!pets.Any())
+        {
+            Console.WriteLine("No pets to use items on.");
+            return;
+        }
+
+        Console.WriteLine("Choose a pet:");
+        for (int i = 0; i < pets.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {pets[i].Name} ({pets[i].Type})");
+        }
+
+        int petIndex = int.Parse(Console.ReadLine()) - 1;
+        Pet selectedPet = pets[petIndex];
+
+        var items = itemDb.GetItemsForPetType(selectedPet.Type);
+        Console.WriteLine("Choose an item:");
+        for (int i = 0; i < items.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {items[i].Name} - Increases {items[i].AffectedStat} by {items[i].Value}");
+        }
+
+        int itemIndex = int.Parse(Console.ReadLine()) - 1;
+        await selectedPet.UseItem(items[itemIndex]);
+    }
+}
+
+// Item.cs
+public class Item
+{
+    public string Name { get; set; }
+    public PetStat AffectedStat { get; set; }
+    public int Value { get; set; }
+    public int Duration { get; set; } // milliseconds
+
+    public Item(string name, PetStat affectedStat, int value, int duration)
+    {
+        Name = name;
+        AffectedStat = affectedStat;
+        Value = value;
+        Duration = duration;
+    }
+}
+
+// ItemDatabase.cs
+using System.Collections.Generic;
+using System.Linq;
+
+public class ItemDatabase
+{
+    private List<Item> allItems = new List<Item>
+    {
+        new Item("Burger", PetStat.Hunger, 20, 2000),
+        new Item("Bed", PetStat.Sleep, 30, 3000),
+        new Item("Toy", PetStat.Fun, 25, 2500),
+    };
+
+    public List<Item> GetItemsForPetType(PetType type)
+    {
+        return allItems.Where(i => true).ToList(); // LINQ used here for filtering if needed
+    }
+}
+
+// PetType.cs
+public enum PetType
+{
+    Dog = 1,
+    Cat = 2,
+    Dragon = 3
+}
+
+// PetStat.cs
+public enum PetStat
+{
+    Hunger,
+    Sleep,
+    Fun
+}
+
+// PetEventArgs.cs
+using System;
+
+public class PetEventArgs : EventArgs
+{
+    public string PetName { get; }
+
+    public PetEventArgs(string name)
+    {
+        PetName = name;
+    }
+}
 
