@@ -1,1 +1,24 @@
+// Program.cs
+using System;
+
+class Program
+{
+    static async Task Main(string[] args)
+    {
+        Game game = new Game();
+        await game.Run();
+    }
+}
+
+// Game.cs
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+public class Game
+{
+    private PetManager petManager = new PetManager();
+    private bool isRunning = true;
+    private string creatorName = "Ali Almashwakhi";
+    private string studentNumber = "2305045030";
 
