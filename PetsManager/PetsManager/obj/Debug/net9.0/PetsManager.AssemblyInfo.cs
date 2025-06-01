@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PetsManager")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ad442bf0b3134fe2832c8e895dcea60b7b99dd7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d26a27850884ac878252f48bbb7ff52dede72ed3")]
 [assembly: System.Reflection.AssemblyProductAttribute("PetsManager")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PetsManager")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

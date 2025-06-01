@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\mashw\\OneDrive\\Documents\\GitHub\\DGD208-Spring2025-Ali-Almashukhi\\PetsManager\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7F9E29DA-1A8E-4693-BD3E-AC228AB0324C}|PetsManager\\PetsManager.csproj|c:\\users\\mashw\\onedrive\\documents\\github\\dgd208-spring2025-ali-almashukhi\\petsmanager\\petsmanager\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F9E29DA-1A8E-4693-BD3E-AC228AB0324C}|PetsManager\\PetsManager.csproj|solutionrelative:petsmanager\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7F9E29DA-1A8E-4693-BD3E-AC228AB0324C}|PetsManager\\PetsManager.csproj|c:\\users\\mashw\\onedrive\\documents\\github\\dgd208-spring2025-ali-almashukhi\\petsmanager\\petsmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7F9E29DA-1A8E-4693-BD3E-AC228AB0324C}|PetsManager\\PetsManager.csproj|solutionrelative:petsmanager\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -19,6 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Game.cs",
+              "DocumentMoniker": "C:\\Users\\mashw\\OneDrive\\Documents\\GitHub\\DGD208-Spring2025-Ali-Almashukhi\\PetsManager\\PetsManager\\Game.cs",
+              "RelativeDocumentMoniker": "PetsManager\\Game.cs",
+              "ToolTip": "C:\\Users\\mashw\\OneDrive\\Documents\\GitHub\\DGD208-Spring2025-Ali-Almashukhi\\PetsManager\\PetsManager\\Game.cs",
+              "RelativeToolTip": "PetsManager\\Game.cs",
+              "ViewState": "AgIAAJ8AAAAAAAAAAAAYwBoBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-01T20:15:24.458Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\mashw\\OneDrive\\Documents\\GitHub\\DGD208-Spring2025-Ali-Almashukhi\\PetsManager\\PetsManager\\Program.cs",
               "RelativeDocumentMoniker": "PetsManager\\Program.cs",
@@ -26,7 +43,7 @@
               "RelativeToolTip": "PetsManager\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-01T19:51:05.311Z",
+              "WhenOpened": "2025-06-01T20:14:41.176Z",
               "EditorCaption": ""
             }
           ]
