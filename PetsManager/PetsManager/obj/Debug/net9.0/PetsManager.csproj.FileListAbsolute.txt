@@ -1,0 +1,15 @@
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\bin\Debug\net9.0\PetSimulator.exe
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\bin\Debug\net9.0\PetSimulator.deps.json
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\bin\Debug\net9.0\PetSimulator.runtimeconfig.json
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\bin\Debug\net9.0\PetSimulator.dll
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\bin\Debug\net9.0\PetSimulator.pdb
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\obj\Debug\net9.0\PetsManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\obj\Debug\net9.0\PetsManager.AssemblyInfoInputs.cache
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\obj\Debug\net9.0\PetsManager.AssemblyInfo.cs
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\obj\Debug\net9.0\PetsManager.csproj.CoreCompileInputs.cache
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\obj\Debug\net9.0\PetsManager.sourcelink.json
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\obj\Debug\net9.0\PetSimulator.dll
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\obj\Debug\net9.0\refint\PetSimulator.dll
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\obj\Debug\net9.0\PetSimulator.pdb
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\obj\Debug\net9.0\PetsManager.genruntimeconfig.cache
+C:\Users\mashw\OneDrive\Documents\GitHub\DGD208-Spring2025-Ali-Almashukhi\PetsManager\PetsManager\obj\Debug\net9.0\ref\PetSimulator.dll

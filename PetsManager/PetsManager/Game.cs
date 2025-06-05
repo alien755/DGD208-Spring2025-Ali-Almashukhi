@@ -242,8 +242,8 @@ namespace PetSimulator
         private void ShowAbout()
         {
             Console.WriteLine("\n=== About Pet Simulator ===");
-            Console.WriteLine("Created by: [Your Name]");
-            Console.WriteLine("Student Number: [Your Student Number]");
+            Console.WriteLine("Created by: [Ali AlMashukhi]");
+            Console.WriteLine("Student Number: [2305045030]");
             Console.WriteLine("A console-based pet care simulator");
             Console.WriteLine("Version 1.0");
         }
